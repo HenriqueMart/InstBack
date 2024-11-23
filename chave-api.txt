@@ -1,6 +1,0 @@
-AIzaSyC4iugCJk9DpIQTvz1yhQepC83LGKObOuw
-
-devhenriquemartins
-EDfqNIwWo3VlSplS
-
-mongodb+srv://devhenriquemartins:EDfqNIwWo3VlSplS@cluster0.zgi4c.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
