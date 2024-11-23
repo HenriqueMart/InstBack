@@ -4,7 +4,7 @@ import express from "express";
 import multer from "multer";
 // Importa o módulo Multer, que é especializado em lidar com o upload de arquivos. Ele será usado para gerenciar o envio de imagens para o servidor.
 
-import { listarPosts, postarNovoPost, uploadImagem } from "../controllers/postsController.js";
+import { listarPosts, postarNovoPost, uploadImagem, atualizarNovoPost } from "../controllers/postsController.js";
 // Importa funções específicas do arquivo `postsController.js`. Essas funções provavelmente contêm a lógica para:
 // - listarPosts: Listar todos os posts armazenados.
 // - postarNovoPost: Criar um novo post.
@@ -49,6 +49,8 @@ const routes = (app) => {
   app.post("/upload", upload.single("imagem"), uploadImagem);
   // Quando uma requisição POST for feita para a URL `/upload`, o Multer irá extrair o arquivo enviado com o nome "imagem" e salvá-lo no diretório configurado.
   // Em seguida, a função `uploadImagem` será chamada para realizar qualquer processamento adicional necessário.
+
+  app.put("/upload/:id", atualizarNovoPost);
 };
 
 export default routes;
