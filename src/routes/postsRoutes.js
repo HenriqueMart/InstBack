@@ -4,6 +4,13 @@ import express from "express";
 import multer from "multer";
 // Importa o módulo Multer, que é especializado em lidar com o upload de arquivos. Ele será usado para gerenciar o envio de imagens para o servidor.
 
+import cors from "cors";
+
+const corsOptions = {
+  origin: "http://localhost:8000",
+  OptionsSuccessStatus: 200
+}
+
 import { listarPosts, postarNovoPost, uploadImagem, atualizarNovoPost } from "../controllers/postsController.js";
 // Importa funções específicas do arquivo `postsController.js`. Essas funções provavelmente contêm a lógica para:
 // - listarPosts: Listar todos os posts armazenados.
@@ -34,7 +41,7 @@ const routes = (app) => {
   app.use(express.json());
   // Permite que a aplicação entenda as requisições que enviam dados no formato JSON. 
   // Isso é comum em APIs REST, onde os dados são frequentemente enviados e recebidos em JSON.
-
+  app.use(cors(corsOptions));
   // Define uma rota GET para obter todos os posts
   app.get("/posts", listarPosts);
   // Quando uma requisição GET for feita para a URL `/posts`, a função `listarPosts` será chamada. 
