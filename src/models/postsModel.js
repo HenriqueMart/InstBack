@@ -13,3 +13,12 @@ export async function getTodosPosts() {
     // Encontra todos os documentos na coleção "posts" e retorna um array com os resultados
     return colecao.find().toArray();
 }
+
+export async function criarPost(novoPost) {
+    // Seleciona o banco de dados "imersao-instbacktest"
+    const db = conexao.db("imersao-instbacktest");
+    // Seleciona a coleção "posts" dentro do banco de dados
+    const colecao = db.collection("posts");
+    // Encontra todos os documentos na coleção "posts" e retorna um array com os resultados
+    return colecao.insertOne(novoPost);
+}
